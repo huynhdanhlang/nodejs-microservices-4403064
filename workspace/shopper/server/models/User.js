@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const crypto = require("crypto");
 
-const UserSchema = mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
     email: {
       // Trim and lowercase
@@ -24,7 +24,7 @@ const UserSchema = mongoose.Schema(
       type: String
     }
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 UserSchema.pre("save", function preSave(next) {
