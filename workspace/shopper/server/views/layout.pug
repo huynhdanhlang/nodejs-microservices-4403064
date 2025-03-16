@@ -81,7 +81,7 @@ html(lang='en')
 
     .container
 
-      while messages.length > 0
+      while messages && messages.length > 0
         - const message =messages.pop();
         .alert(class='alert-dismissible fade show alert-' + message.type)
           button.close(type='button', data-dismiss='alert', aria-label='Close')
