@@ -10,6 +10,10 @@ class CartService {
     return `shopper_cart:${userId}`;
   }
 
+  /**
+   * 
+   * @returns {import('@redis/client').RedisClientType}
+   */
   static client() {
     return config.redis.client;
   }

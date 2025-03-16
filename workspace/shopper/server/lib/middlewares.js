@@ -1,13 +1,7 @@
 const UserService = require("../services/UserService");
-const CartService = require("../services/CartService");
+const CartService = require("../services/CartServiceClient");
 const config = require("../config");
-/**
- * 
- * @param {Express.Request} req 
- * @param {Express.Response} res 
- * @param {*} next 
- * @returns 
- */
+
 module.exports.assignTemplateVariables = async (req, res, next) => {
   res.locals.applicationName = config.applicationName;
 
