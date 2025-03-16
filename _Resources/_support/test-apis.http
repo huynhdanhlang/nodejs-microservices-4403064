@@ -61,6 +61,8 @@ GET http://localhost:3080/find/myservice/2
 // This shows you how you get random services because of the wildcard version - try it a few times
 ###
 GET http://localhost:3080/find/myservice/*
+###
+GET http://localhost:3080/find/catalog-service/*
 
 ###
 GET http://localhost:3080/find/myotherservice/*
