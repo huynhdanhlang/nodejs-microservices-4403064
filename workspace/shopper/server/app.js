@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, "../client"))); // Serve static file
 // Initialize Redis session store
 const redisStore = new RedisStore({
   client: config.redis.client,
-  prefix: "shopper_session:",
+  prefix: "shopper_session:"
 });
 
 // Set up session middleware
@@ -35,7 +35,7 @@ app.use(
     store: redisStore,
     secret: "CHANGE ME!",
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: false
   })
 );
 
