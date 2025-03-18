@@ -1,5 +1,6 @@
 const express = require("express");
 const CatalogService = require("../lib/CatalogService");
+const isAdminRole = require("../lib/checkRole");
 const router = express.Router();
 
 const transformResponse = (item) => {
@@ -38,7 +39,7 @@ router.get("/items/:id", async (req, res) => {
   }
 });
 
-router.post("/items", async (req, res) => {
+router.post("/items", isAdminRole, async (req, res) => {
   try {
     const item = await CatalogService.create(req.body);
 
