@@ -33,7 +33,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  req.session.userId = null;
+  req.session.token = null;
   req.session.messages.push({
     type: "success",
     text: "You have been logged out!"
