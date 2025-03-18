@@ -49,20 +49,24 @@ class CatalogClient {
   /**
    * Create a new item in the database
    * @param {Object} data - The data for the new item
+   * @param {string} token
    * @returns {Promise<Object>} - A promise that resolves to the new Item object
    */
-  static async create(data) {
+  static async create(data, token) {
     try {
       const result = await ServiceClient.callService("catalog-service", {
         method: "post",
         url: `/items`,
-        data: data
+        data: data,
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       });
 
       return result;
     } catch (error) {
       console.error(error);
-      return {};
+      throw error;
     }
   }
 
@@ -70,20 +74,24 @@ class CatalogClient {
    * Update an existing item in the database
    * @param {string} itemId - The id of the item to update
    * @param {Object} data - The new data for the item
+   * @param {string} token
    * @returns {Promise<Object|null>} - A promise that resolves to the updated Item object, or null if no item was found
    */
-  static async update(itemId, data) {
+  static async update(itemId, data, token) {
     try {
       const result = await ServiceClient.callService("catalog-service", {
         method: "put",
         url: `/items/${itemId}`,
-        data: data
+        data: data,
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       });
 
       return result;
     } catch (error) {
       console.error(error);
-      return {};
+      throw error;
     }
   }
 
